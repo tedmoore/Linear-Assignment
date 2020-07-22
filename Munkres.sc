@@ -1,4 +1,10 @@
 /**
+Ted Moore
+ted@tedmooremusic.com
+www.tedmooremusic.com
+May 28, 2019
+
+ported from this javascript:
 
 https://github.com/addaleax/munkres-js/blob/master/munkres.js
 

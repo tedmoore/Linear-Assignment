@@ -1,5 +1,17 @@
+/*
+Ted Moore
+ted@tedmooremusic.com
+www.tedmooremusic.com
+May 28, 2019
+
+This auction algorithm is a faster (but suboptimal) solution to the linear assignment problem.
+
+ported from this c++ code:
+https://github.com/kylemcdonald/AuctionAlgorithm/blob/master/cpp/auction.cpp
+
+*/
+
 Auction {
-	//https://github.com/kylemcdonald/AuctionAlgorithm/blob/master/cpp/auction.cpp
 
 	var assignment,
 	prices,
@@ -219,49 +231,6 @@ Auction {
 
 	/*<--------------------------------------   Utility Functions   -------------------------------------->*/
 
-	/*	vector<int> makeRandC(int size)
-	{
-	srand (time(NULL));
-	vector<int> mat(size * size, 2);
-	for(int i = 0; i < size; i++)
-	{
-	for(int j = 0; j < size; j++)
-	{
-	mat[i + j * size] = rand() % size + 1;
-	}
-	}
-	return mat;
-	}
-
-	void printMatrix(vector<cost_t>* mat, int size)
-	{
-	for(int i = 0; i < size; i++)
-	{
-	for(int j = 0; j < size; j++)
-	{
-	cout << mat->at(i + j * size) << "\t";
-	}
-	cout << endl;
-	}
-	}
-
-	template <class T>
-	void printVec(vector<T>* v)
-	{
-	for(int i = 0; i < v->size(); i++)
-	{
-	if (v->at(i) == numeric_limits<T>::max())
-	{
-	cout << "INF" << "\t";
-	}
-	else
-	{
-	cout << v->at(i) << "\t";
-	}
-	}
-	cout << endl;
-	}*/
-
 	/* Returns a vector of indices from v which have the specified value val */
 	getIndicesWithVal {
 		arg v, val;
@@ -275,12 +244,4 @@ Auction {
 		});
 		^out;
 	}
-
-	/*	void reset(vector<cost_t>* v, cost_t val)
-	{
-	for (int i = 0; i < v->size(); i++)
-	{
-	v->at(i) = val;
-	}
-	}*/
 }
