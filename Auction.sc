@@ -54,10 +54,10 @@ Auction {
 
 		available_spots = Array.fill(rows,{
 			arg y;
-			y = y.linlin(0,rows-1,0.0,1.0);
+			y = y.linlin(0,rows,0.0,1.0);
 			Array.fill(cols,{
 				arg x;
-				x = x.linlin(0,cols-1,0.0,1.0);
+				x = x.linlin(0,cols,0.0,1.0);
 				[x,y];
 			});
 		}).flatten;
@@ -66,11 +66,12 @@ Auction {
 
 		cost_matrix = corpus.collect({
 			arg pt, i;
-			//"pt: %".format(pt).postln;
+			"pt: % / %\t%".format(i,corpus.size,pt).postln;
 			available_spots.collect({
 				arg as;
-				"% pt, as: % , % --- %".format(i,pt,as,i/corpus.size).postln;
-				(as - pt).pow(2).sum.sqrt;
+				//"% pt, as: % , % --- %".format(i,pt,as,i/corpus.size).postln;
+				// (as - pt).pow(2).sum.sqrt;
+				(as - pt).pow(2).sum;
 			});
 		});
 
@@ -84,7 +85,7 @@ Auction {
 			available_spots[assign];
 		});
 		"assignments: %".format(assignments).postln;
-		^assignments;
+		^[assignments, rows, cols];
 	}
 
 	auction {
@@ -111,6 +112,7 @@ Auction {
 
 			});
 			epsilon = epsilon * 0.25;
+			"epsilon: %".format(epsilon).postln;
 		});
 
 		^assignment;
